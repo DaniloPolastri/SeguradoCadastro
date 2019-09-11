@@ -19,17 +19,14 @@
 	</nav>
 
 	<div class="container">
-	<form action="${pageContext.request.contextPath}/ebix/cadastro">
 		<div class="card text-center mx-au to mt-5">
 			<h5 class="card-header bg-info text-white">CADASTRA SEGURADO</h5>
 			<div class="card-body">
 				${mensagem}
 				<p class="card-text ">Deseja cadastrar um segurado?</p>
-				<a href="cadastra.jsp" class="btn btn-info">Clique aqui</a>
+				<a href="${pageContext.request.contextPath}/cadastra.jsp" class="btn btn-info rounded-pill">Clique aqui</a>
 			</div>
 		</div>
-	</form>
-		
 	</div>
 </body>
 </html>

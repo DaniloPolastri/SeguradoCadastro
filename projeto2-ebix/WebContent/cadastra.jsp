@@ -29,27 +29,27 @@
 					class="fas fa-arrow-left float-left"></i></a> CADASTRO
 			</h5>
 			<div class="card-body">
-				<form class="p-3" method="post" action="SeguradoController">
+				<form class="p-3" method="post" action="${pageContext.request.contextPath}/ebix/home">
 					<div class="form-group row ">
 						<label for="nome"
 							class="col-sm-1 col-form-label col-form-label-sm">NOME:</label>
 						<div>
-							<input class="form-control form-control-sm ml-5" id="nome"
-								name="nome" placeholder="nome">
+							<input class="form-control form-control-sm ml-5 rounded-pill" id="nome"
+								name="nome" placeholder="nome" >
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="cpf"
 							class=" col-sm-1 col-form-label col-form-label-sm">CPF:</label>
 						<div>
-							<input class="form-control form-control-sm ml-5" id="cpf"
+							<input class="form-control form-control-sm ml-5 rounded-pill" id="cpf"
 								name="cpf" placeholder="cpf">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label for="rg" class=" col-sm-1 col-form-label col-form-label-sm">RG:</label>
 						<div>
-							<input class="form-control form-control-sm ml-5" id="rg"
+							<input class="form-control form-control-sm ml-5 rounded-pill" id="rg"
 								placeholder="rg" name="rg">
 						</div>
 					</div>
@@ -85,12 +85,12 @@
 					<hr>
 					<h5 class="mt-2">CORRENTISTA</h5>
 
-					<select class="custom-select mt-1" name="correntista">
+					<select class="custom-select mt-1 rounded-pill" name="correntista">
 						<option value="Sim">Sim</option>
 						<option value="Nao">Não</option>
 					</select>
 					<h5 class="mt-2">DIA DA VISITA</h5>
-					<select multiple class="custom-select mt-1" name="visita">
+					<select multiple class="custom-select mt-1 rounded-pill" name="visita">
 						<option value="Segunda">Segunda</option>
 						<option value="Terça">Terça</option>
 						<option value="Quarta">Quarta</option>
@@ -100,7 +100,7 @@
 						<option value="Domingo">Domingo</option>
 					</select>
 					<div class="text-center mt-4">
-						<button type="submit" class="btn btn-info" href="cadastro.jsp">CADASTRA</button>
+						<button type="submit" class="btn btn-lg btn-info rounded-pill">CADASTRA</button>
 					</div>
 					${mensagem}
 				</form>
