@@ -19,12 +19,16 @@
 	</nav>
 
 	<div class="container">
+		<div class="mt-4">
+				
+		</div>
 		<div class="card text-center mx-au to mt-5">
 			<h5 class="card-header bg-info text-white">CADASTRA SEGURADO</h5>
 			<div class="card-body">
-				${mensagem}
 				<p class="card-text ">Deseja cadastrar um segurado?</p>
-				<a href="${pageContext.request.contextPath}/cadastra.jsp" class="btn btn-info rounded-pill">Clique aqui</a>
+				<a href="${pageContext.request.contextPath}/cadastra.jsp"
+					class="btn btn-info rounded-pill">Clique aqui</a>
+				<div class="text-info border border-info mt-2">${mensagem}</div>
 			</div>
 		</div>
 	</div>
