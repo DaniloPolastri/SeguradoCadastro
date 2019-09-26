@@ -3,6 +3,7 @@ package br.com.ebix.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,8 +15,9 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Seguro implements EntidadeBase {
-
+	
 	@Id
+	@Column(name = "seguroid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer identificacao;
 	@Column(nullable = false)
@@ -53,6 +55,12 @@ public class Seguro implements EntidadeBase {
 	@Override
 	public Integer getId() {
 		return null;
+	}
+
+	@Override
+	public String toString() {
+		return "Seguro [identificacao=" + identificacao + ", seguro=" + seguro + ", valor=" + valor + ", segurados="
+				+ segurados + "]";
 	}
 
 }

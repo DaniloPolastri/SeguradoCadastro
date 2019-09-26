@@ -7,7 +7,7 @@
 		<!-- Implementação do JPA -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<!-- Lista de entidades -->
-<!-- 		<class>br.com.model.bean.Login</class>
+<!-- 	<class>br.com.model.bean.Login</class>
 		<class>br.com.model.bean.Segurado</class>
 		<class>br.com.model.bean.Seguro</class> -->
 		<properties>

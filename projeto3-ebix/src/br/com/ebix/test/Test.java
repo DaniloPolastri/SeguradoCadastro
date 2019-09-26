@@ -22,6 +22,7 @@ public class Test {
 		daoLogin.saveOrUpdate(login);
 		daoSeguro.saveOrUpdate(seguro);
 		daoSegurado.saveOrUpdate(segurado);
+		System.out.println(daoSeguro.findAllSeguro());
 
 		System.out.println("Foi");
 

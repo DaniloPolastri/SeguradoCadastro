@@ -2,8 +2,10 @@ package br.com.ebix.entity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +19,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Segurado implements EntidadeBase {
-
+	@Column(name = "seguradoid")
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -32,19 +34,17 @@ public class Segurado implements EntidadeBase {
 	private String correntista;
 	@Column(nullable = false)
 	private String diasDeVisita;
-	@Column(nullable = false)
-	private String seguro;
-	@Temporal(TemporalType.DATE)
-	private Calendar dataDeCadastro;
-	@Temporal(TemporalType.DATE)
-	private Calendar dataDeAlteracao;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataDeCadastro;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataDeAlteracao;
 	@Column(nullable = false)
 	private String data_nasc;
 
 	@ManyToMany
 	@JoinTable(name="table_relacionamento", joinColumns = {
-			@JoinColumn(name="id_segurado" , referencedColumnName = "id")} , inverseJoinColumns = {
-			@JoinColumn(name="id_seguro" , referencedColumnName = "identificacao")})
+			@JoinColumn(name="id_segurado" , referencedColumnName = "seguradoid")} , inverseJoinColumns = {
+			@JoinColumn(name="id_seguro" , referencedColumnName = "seguroid")})
 	private List<Seguro> seguros = new ArrayList<Seguro>();
 	
 	public List<Seguro> getSeguros() {
@@ -119,28 +119,22 @@ public class Segurado implements EntidadeBase {
 		this.diasDeVisita = diasDeVisita;
 	}
 
-	public Calendar getDataDeCadastro() {
+	public Date getDataDeCadastro() {
 		return dataDeCadastro;
 	}
 
-	public String getSeguro() {
-		return seguro;
-	}
-
-	public void setSeguro(String seguro) {
-		this.seguro = seguro;
-	}
-
-	public void setDataDeCadastro(Calendar dataDeCadastro) {
+	public void setDataDeCadastro(Date dataDeCadastro) {
 		this.dataDeCadastro = dataDeCadastro;
 	}
 
-	public Calendar getDataDeAlteracao() {
+	public Date getDataDeAlteracao() {
 		return dataDeAlteracao;
 	}
 
-	public void setDataDeAlteracao(Calendar dataDeAlteracao) {
+	public void setDataDeAlteracao(Date dataDeAlteracao) {
 		this.dataDeAlteracao = dataDeAlteracao;
 	}
-
+	
+	
+	
 }

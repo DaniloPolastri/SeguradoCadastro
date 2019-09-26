@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="java.util.List, br.com.ebix.entity.Seguro"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,8 +39,8 @@
 	<div class="container">
 		<div class="card mt-4 border-secondary">
 			<h5 class="card-header text-center bg-secondary text-white">
-				<!--<a href="menu.jsp" class="text-decoration-none text-white"><i
-					class="fas fa-arrow-left float-left"></i></a>  -->
+				<a href="menu.jsp" class="text-decoration-none text-white"><i
+					class="fas fa-arrow-left float-left"></i></a>  
 				CADASTRO
 			</h5>
 			<div class="card-body">
@@ -102,41 +104,30 @@
 					</select>
 					<h5 class="mt-2">SEGURO</h5>
 					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="Auto"
+						<c:forEach items="${seguros}" var="seguro">
+							<input class="form-check-input" type="checkbox" value="${seguro.identificacao}"
 							name="segurocadastrado" id="auto"
-							${paramValues.seguro.stream().anyMatch(v->v == 'Auto').get() ? 'checked' : ''}>
-						<label class="form-check-label" for="auto"> AUTO </label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox"
-							value="Residencial" name="seguro" id="residencial"
-							${paramValues.seguro.stream().anyMatch(v->v == 'Residencial').get() ? 'checked' : ''}>
-						<label class="form-check-label" for="residencial">
-							RESIDENCIAL </label>
-					</div>
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="Vida"
-							name="seguro" id="vida"
-							${paramValues.seguro.stream().anyMatch(v->v == 'Vida').get() ? 'checked' : ''}>
-						<label class="form-check-label" for="vida"> VIDA </label>
+							${paramValues.seguro.stream().anyMatch(v->v == '${seguro.identificacao}').get() ? 'checked' : ''}>
+							<label class="form-check-label" > ${seguro.seguro} </label> <br>
+						</c:forEach>
 					</div>
 					<h5 class="mt-2">DIA DA VISITA</h5>
 					<select multiple class="custom-select mt-1 " name="visita">
 						<option value="Segunda"
-							${paramValues.visita.stream().anyMartch(v -> v == "Segunda").get() ? 'selected' : ''}>
+							${paramValues.visita.stream().anyMatch(v -> v == "Segunda").get() ? 'selected' : ''}>
 							Segunda</option>
 						<option value="Terça"
-							${paramValues.visita.stream().anyMartch(v -> v == "Terça").get() ? 'selected' : ''}>Terça</option>
+							${paramValues.visita.stream().anyMatch(v -> v == "Terça").get() ? 'selected' : ''}>Terça</option>
 						<option value="Quarta"
-							${paramValues.visita.stream().anyMartch(v -> v == "Quarta").get() ? 'selected' : ''}>Quarta</option>
+							${paramValues.visita.stream().anyMatch(v -> v == "Quarta").get() ? 'selected' : ''}>Quarta</option>
 						<option value="Quinta"
-							${paramValues.visita.stream().anyMartch(v -> v == "Quinta").get() ? 'selected' : ''}>Quinta</option>
+							${paramValues.visita.stream().anyMatch(v -> v == "Quinta").get() ? 'selected' : ''}>Quinta</option>
 						<option value="Sexta"
-							${paramValues.visita.stream().anyMartch(v -> v == "Sexta").get() ? 'selected' : ''}>Sexta</option>
+							${paramValues.visita.stream().anyMatch(v -> v == "Sexta").get() ? 'selected' : ''}>Sexta</option>
 						<option value="Sábado"
-							${paramValues.visita.stream().anyMartch(v -> v == "Sábado").get() ? 'selected' : ''}>Sábado</option>
+							${paramValues.visita.stream().anyMatch(v -> v == "Sábado").get() ? 'selected' : ''}>Sábado</option>
 						<option value="Domingo"
-							${paramValues.visita.stream().anyMartch(v -> v == "Domingo").get() ? 'selected' : ''}>Domingo</option>
+							${paramValues.visita.stream().anyMatch(v -> v == "Domingo").get() ? 'selected' : ''}>Domingo</option>
 					</select>
 					<div class="text-center mt-4">
 						<button type="submit" class="medio btn btn-secondary rounded-pill">CADASTRAR</button>

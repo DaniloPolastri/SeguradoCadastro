@@ -38,14 +38,14 @@
 	<div class="container">
 		<div class="card mt-4 border-secondary">
 			<h5 class="card-header text-center bg-secondary text-white">
-			<!-- <a href="menu.jsp" class="text-decoration-none text-white"><i
-					class="fas fa-arrow-left float-left"></i></a> -->	 CADASTRA SEGURO
+			 <a href="menu.jsp" class="text-decoration-none text-white"><i
+					class="fas fa-arrow-left float-left"></i></a> 	 CADASTRA SEGURO
 			</h5>
 			<div class="card-body">
 				<form class="p-3" method="post" action="seguro">
 					<div class="form-group row mt-3">
 						<label for="valor"
-							class=" col-sm-1 col-form-label col-form-label-sm">Seguro:</label>
+							class=" col-sm-1 col-form-label col-form-label-sm">SEGURO:</label>
 						<div>
 							<input class="form-control form-control-sm ml-5 rounded-pill"
 								id="valor" name="seguro" placeholder="Valor do Seguro" value="${param.seguro}" name="Seguro">

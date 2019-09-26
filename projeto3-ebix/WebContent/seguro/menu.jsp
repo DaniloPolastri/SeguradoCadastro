@@ -24,42 +24,41 @@
 
 
 	<nav class="navbar navbar-light bg-secondary">
-		<span class="navbar-brand mx-auto" href="#"> <img
-			src="logo.png" width="50" height="50"
-			class="d-inline-block align-top">
-		</span>
+		
 		<div>
 			<a href="sair" class="text-decoration-none text-danger ml-2"><i
 				class="fas fa-arrow-left float-left fa-2x"></i>Sair</a>
 		</div>
 	</nav>
 	<div class="container">
-
 		<div class="card mx-auto shadow p-3 mb-5" style="margin-top: 100px;">
-			<div class="card-body">
-				<div class="text-info text-center">${msgLogin}</div>
-				<div class="card-title text-center">
-					<p style="font-size: 35px">Escolha uma opção</p>
+			<form method="get">
+				<div class="card-body">
+					<div class="text-info text-center">${msgLogin}</div>
+					<div class="card-title text-center">
+						<p style="font-size: 35px">Escolha uma opção</p>
+					</div>
+					<hr>
+					<div class="text-center mt-2">
+						<a class="btn btn-lg btn-secondary  medio rounded-pill"
+							href="${pageContext.request.contextPath}/seguro/cadastraSegurado">Cadastro
+							de segurado</a>
+					</div>
+					<div class="text-center mt-2">
+						<a class="btn btn-lg btn-secondary  medio rounded-pill"
+							href="${pageContext.request.contextPath}/seguro/listaSegurado">Listar os segurados</a>
+					</div>
+					<div class="text-center mt-2">
+						<a class="btn btn-lg btn-secondary medio rounded-pill"
+							href="${pageContext.request.contextPath}/seguro/seguro">Cadastrar
+							seguros</a>
+					</div>
+					<div class="text-center mt-2">
+						<a class="btn btn-lg btn-secondary medio rounded-pill"
+							href="${pageContext.request.contextPath}/seguro/listaSeguro">Listar seguros</a>
+					</div>
 				</div>
-				<hr>
-				<div class="text-center mt-2">
-					<a class="btn btn-lg btn-secondary  medio rounded-pill" href="${pageContext.request.contextPath}/seguro/cadastraSegurado.jsp">Cadastro
-						de segurado</a>
-				</div>
-				<div class="text-center mt-2">
-					<a class="btn btn-lg btn-secondary  medio rounded-pill"
-						href="seguro/listasegurado.jsp">Listar os segurados</a>
-				</div>
-				<div class="text-center mt-2">
-					<a class="btn btn-lg btn-secondary medio rounded-pill" href="${pageContext.request.contextPath}/seguro/cadastraSeguro.jsp">Cadastrar
-						seguros</a>
-				</div>
-				<div class="text-center mt-2">
-					<a class="btn btn-lg btn-secondary medio rounded-pill"
-						href="seguro/listaseguro.jsp">Listar seguros</a>
-				</div>			
-			</div>
-
+			</form>
 		</div>
 	</div>
 </body>

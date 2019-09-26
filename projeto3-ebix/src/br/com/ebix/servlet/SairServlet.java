@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/sair")
+@WebServlet("/seguro/sair")
 public class SairServlet extends HttpServlet {
 	
 	@Override
@@ -19,7 +19,8 @@ public class SairServlet extends HttpServlet {
 		 HttpSession session = req.getSession();
 	        if(session.getAttribute("usuario") != null){
 	            session.removeAttribute("usuario");
-	            resp.sendRedirect("index.jsp");
+	            getServletContext().getRequestDispatcher("/index.jsp").include(req, resp);
+	    
 	        }
 	}
 }

@@ -21,7 +21,6 @@ public class FiltroSeguranca implements Filter {
 		Login lg = (Login) session.getAttribute("usuario");
 
 		if (lg == null) {
-			session.setAttribute("msgLogin", "Você não está logado no sistema!");
 			((HttpServletResponse) res).sendRedirect("../index.jsp");
 		} else {
 			chain.doFilter(req, res);
