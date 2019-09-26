@@ -27,9 +27,13 @@
 				class="text-decoration-none text-info ml-2 text-center"><i
 				class="fas fa-plus mr-1 fa-2x"></i></a>
 		</div>
-		<div>
-			<a href="${pageContext.request.contextPath}/seguro/menu.jsp"
+		<div class="mb-2">
+			<a href="${pageContext.request.contextPath}/seguro/sair"
 				class="text-decoration-none text-danger ml-2"><i
+				class="fas fa-arrow-left float-left fa-2x "></i>Sair</a>
+		</div>
+		<div>
+			<a href="menu.jsp" class="text-decoration-none text-danger ml-2"><i
 				class="fas fa-arrow-left float-left fa-2x"></i>Voltar</a>
 		</div>
 		<table class="table">
@@ -65,9 +69,9 @@
 						<td>${segurado.dataDeAlteracao}</td>
 						<td>${segurado.diasDeVisita}</td>
 						<td><a href="${pageContext.request.contextPath}/seguro/excluir?action=delsegurado&id=${segurado.id}" class="btn btn-danger text-white"><i
-								class="far fa-trash-alt"></i>Excluir</a><a
+								class="far fa-trash-alt"></i></a><a
 							class="btn btn-warning  text-white"><i
-								class="fas fa-pencil-alt"></i>Alterar</a></td>
+								class="fas fa-pencil-alt"></i></a></td>
 					</tr>
 				</c:forEach>
 

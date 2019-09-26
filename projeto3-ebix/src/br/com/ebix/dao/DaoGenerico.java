@@ -15,13 +15,14 @@ public class DaoGenerico<T extends EntidadeBase> {
 	private static EntityManager em = ConnectionFactory.getEntityManager();
 	TypedQuery<Seguro> query;
 	TypedQuery<Segurado> query2;
+
 	public T findById(Class<T> classe, Integer id) {
 		return em.find(classe, id);
 	}
-	
+
 	public void saveOrUpdate(T obj) {
 		try {
-			
+
 			em.getTransaction().begin();
 			if (obj.getId() == null) {
 				em.persist(obj);
@@ -33,10 +34,10 @@ public class DaoGenerico<T extends EntidadeBase> {
 			em.getTransaction().rollback();
 		}
 	}
-	
-	public void remove(Class<T> classe, Integer id){
+
+	public void remove(Class<T> classe, Integer id) {
 		T t = findById(classe, id);
-		
+
 		try {
 			em.getTransaction().begin();
 			em.remove(t);
@@ -45,18 +46,35 @@ public class DaoGenerico<T extends EntidadeBase> {
 			em.getTransaction().rollback();
 		}
 	}
-	
+
 	public List<Seguro> findAllSeguro() {
 		query = em.createQuery("select seg from Seguro as seg", Seguro.class);
 		List<Seguro> seguros = query.getResultList();
 		return seguros;
-		
+
 	}
 
 	public List<Segurado> findAllSegurado() {
 		query2 = em.createQuery("select seg from Segurado as seg", Segurado.class);
 		List<Segurado> segurados = query2.getResultList();
 		return segurados;
-		
+
+	}
+
+	public Boolean alterar(T obj) {
+		Boolean retorno;
+		try {
+			em.getTransaction().begin();
+			em.merge(obj);
+			em.getTransaction().commit();
+			retorno = true;
+		} catch (RuntimeException e) {
+			em.getTransaction().rollback();
+			retorno = false;
+			throw e;
+		} finally {
+			// em.close();
+		}
+		return retorno;
 	}
 }

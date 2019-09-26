@@ -36,6 +36,14 @@ public class ExcluirServlet extends HttpServlet{
 				req.getAttribute("seguros");
 				getServletContext().getRequestDispatcher("/seguro/listaseguro.jsp").forward(req, resp);
 				break;
+			case "updseguro":
+				DaoGenerico<Seguro> daoalterar = new DaoGenerico<>();
+				String idupdseguro = req.getParameter("id");
+				//buscar o registro para exibir
+				Seguro seguro = daoalterar.findById(Seguro.class, Integer.parseInt(idupdseguro));
+				req.setAttribute("obj", seguro);
+				getServletContext().getRequestDispatcher("/seguro/AtualizarSeguro.jsp").forward(req, resp);
+				break;
 			}
 		
 	}

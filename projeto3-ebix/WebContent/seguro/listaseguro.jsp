@@ -28,14 +28,15 @@
 		</div>
 
 		<div class="mb-2">
-			<a href="${pageContext.request.contextPath}/seguro/sair" class="text-decoration-none text-danger ml-2"><i
+			<a href="${pageContext.request.contextPath}/seguro/sair"
+				class="text-decoration-none text-danger ml-2"><i
 				class="fas fa-arrow-left float-left fa-2x "></i>Sair</a>
 		</div>
 		<div>
 			<a href="menu.jsp" class="text-decoration-none text-danger ml-2"><i
 				class="fas fa-arrow-left float-left fa-2x"></i>Voltar</a>
 		</div>
-		<div></div>
+	
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -52,9 +53,11 @@
 						<th scope="row">${seguro.identificacao}</th>
 						<td>${ seguro.seguro }</td>
 						<td>${ seguro.valor }</td>
-						<td><a href="${pageContext.request.contextPath}/seguro/excluir?action=delseguro&id=${seguro.identificacao}" class="btn btn-danger text-white"><i
-								class="far fa-trash-alt"></i></a> <a
-							class="btn btn-warning text-white"><i
+						<td><a
+							href="${pageContext.request.contextPath}/seguro/excluir?action=delseguro&id=${seguro.identificacao}"
+							class="btn btn-danger text-white"><i class="far fa-trash-alt"></i></a>
+							<a class="btn btn-warning text-white"
+							href="${pageContext.request.contextPath}/seguro/excluir?action=updseguro&id=${seguro.identificacao}"><i
 								class="fas fa-pencil-alt"></i></a></td>
 					</tr>
 				</c:forEach>

@@ -23,12 +23,18 @@ public class SeguroServlet extends HttpServlet {
 			s.setSeguro(req.getParameter("seguro"));
 			s.setValor(Double.parseDouble(req.getParameter("valor")));
 
-			if (s != null) {
-				DaoGenerico<Seguro> dao = new DaoGenerico<>();
+			DaoGenerico<Seguro> dao = new DaoGenerico<>();
+
+			if (req.getParameter("txtId") == null) {
 				dao.saveOrUpdate(s);
 				getServletContext().getRequestDispatcher("/seguro/listaSeguro").forward(req, resp);
+			} else {
+				String numeroId = req.getParameter("txtId");
+				s.setIdentificacao(Integer.parseInt(numeroId));
+				dao.alterar(s);
+				getServletContext().getRequestDispatcher("/seguro/listaSeguro").forward(req, resp);
 			}
-				
+
 			req.setAttribute("msg", "Seguro cadastrado");
 
 		} catch (Exception e) {
